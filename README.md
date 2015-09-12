@@ -1,6 +1,7 @@
 # Supported tags and respective `Dockerfile` links
 
 -   [`latest`, `cli` (*latest/Dockerfile*)](https://github.com/diegomarangoni/docker-php/blob/master/Dockerfile)
+-   [`fpm` (*fpm/Dockerfile*)](https://github.com/diegomarangoni/docker-php/blob/fpm/Dockerfile)
 
 Based on official `php` docker image with additional stuff
 
