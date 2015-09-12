@@ -1,4 +1,8 @@
-## Based on `php` official image with additional stuff
+# Supported tags and respective `Dockerfile` links
+
+-   [`latest`, `cli` (*latest/Dockerfile*)](https://github.com/diegomarangoni/docker-php/blob/master/Dockerfile)
+
+This image is based on `php` official image with additional stuff
 
 ## How to Use
 
