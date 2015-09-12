@@ -13,6 +13,10 @@ RUN docker-php-ext-install intl
 # zip extension
 RUN docker-php-ext-install zip
 
+# apcu extension
+RUN yes '' | pecl install apcu-beta \
+  && docker-php-ext-enable apcu
+
 # set default timezone
 RUN echo 'date.timezone="UTC"' > /usr/local/etc/php/conf.d/date-timezone.ini
 
