@@ -44,6 +44,7 @@ If you think something is missing on this image please open a PR in the reposito
 - mongo
 - intl
 - zip
+- apcu
 
 ### PHP extra settings
 
