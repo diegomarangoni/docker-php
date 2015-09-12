@@ -2,7 +2,7 @@
 
 -   [`latest`, `cli` (*latest/Dockerfile*)](https://github.com/diegomarangoni/docker-php/blob/master/Dockerfile)
 
-This image is based on `php` official image with additional stuff
+Based on official `php` docker image with additional stuff
 
 ## How to Use
 
