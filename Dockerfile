@@ -22,3 +22,6 @@ RUN echo 'date.timezone="UTC"' > /usr/local/etc/php/conf.d/date-timezone.ini
 
 # node modules
 RUN npm install -g less
+
+# enable opcache extension
+RUN docker-php-ext-enable opcache
