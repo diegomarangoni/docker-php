@@ -45,6 +45,7 @@ If you think something is missing on this image please open a PR in the reposito
 - intl
 - zip
 - apcu
+- opcache
 
 ### PHP extra settings
 
