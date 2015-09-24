@@ -19,3 +19,5 @@ RUN yes '' | pecl install apcu-beta \
 
 # set default timezone
 RUN echo 'date.timezone="UTC"' > /usr/local/etc/php/conf.d/date-timezone.ini
+
+RUN docker-php-ext-install pdo_mysql
