@@ -25,3 +25,5 @@ RUN npm install -g less
 
 # enable opcache extension
 RUN docker-php-ext-enable opcache
+
+RUN docker-php-ext-install pdo_mysql
