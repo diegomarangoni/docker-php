@@ -1,29 +1,19 @@
-FROM php
+FROM php:5.6
 
-# dependencies
-RUN apt-get update && apt-get install -y libssl-dev libicu-dev git nodejs npm
+MAINTAINER "Diego Marangoni" <https://github.com/diegomarangoni>
 
-# mongo driver
-RUN yes 'no' | pecl install mongo \
-  && docker-php-ext-enable mongo
-
-# intl extension
-RUN docker-php-ext-install intl
-
-# zip extension
-RUN docker-php-ext-install zip
-
-# apcu extension
-RUN yes '' | pecl install apcu-beta \
-  && docker-php-ext-enable apcu
-
-# set default timezone
-RUN echo 'date.timezone="UTC"' > /usr/local/etc/php/conf.d/date-timezone.ini
-
-# node modules
-RUN npm install -g less
-
-# enable opcache extension
-RUN docker-php-ext-enable opcache
-
-RUN docker-php-ext-install pdo_mysql
+RUN buildDeps=" \
+		libssl-dev \
+		zlib1g-dev \
+		libicu-dev \
+		git \
+		nodejs \
+		npm \
+	" \
+    && apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
+    && { yes 'no' | pecl install mongo; } \
+    && { yes '' | pecl install apcu-beta; } \
+    && docker-php-ext-install intl zip pdo_mysql \
+    && docker-php-ext-enable mongo apcu opcache \
+    && echo 'date.timezone="UTC"' > /usr/local/etc/php/conf.d/date-timezone.ini \
+	&& npm install -g less
