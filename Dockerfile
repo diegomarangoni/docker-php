@@ -6,6 +6,8 @@ RUN buildDeps=" \
         libssl-dev \
         zlib1g-dev \
         libicu-dev \
+        libmcrypt-dev \
+        libxml2-dev \
         git \
         nodejs \
         npm \
@@ -14,7 +16,7 @@ RUN buildDeps=" \
     && { yes 'no' | pecl install mongo; } \
     && { yes '' | pecl install apcu-beta; } \
     && pecl install xdebug \
-    && docker-php-ext-install intl zip pdo_mysql \
+    && docker-php-ext-install intl zip pdo_mysql mcrypt soap \
     && docker-php-ext-enable mongo apcu opcache \
     && echo 'date.timezone="UTC"' > /usr/local/etc/php/conf.d/date-timezone.ini \
     && npm install -g less
