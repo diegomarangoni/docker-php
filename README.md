@@ -37,7 +37,7 @@ php --version
 
 ## About the additional stuff
 
-If you think something is missing on this image please open a PR in the repository at [github](https://github.com/diegomarangoni/docker-composer)
+If you think something is missing on this image please open a PR in the repository at [github](https://github.com/diegomarangoni/docker-php/issues)
 
 ### PHP extra modules
 
