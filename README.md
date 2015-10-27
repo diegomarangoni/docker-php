@@ -16,7 +16,7 @@ exec docker run \
   --rm \
   --privileged=true \
   --net=host \
-  -it \
+  -t \
   -v $HOME:$HOME \
   -w $PWD \
   diegomarangoni/php \
@@ -46,6 +46,11 @@ If you think something is missing on this image please open a PR in the reposito
 - zip
 - apcu
 - opcache
+- mcrypt
+- soap
+- xdebug*
+
+\* installed but not enabled
 
 ### PHP extra settings
 
