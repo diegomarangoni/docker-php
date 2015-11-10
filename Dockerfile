@@ -8,15 +8,23 @@ RUN buildDeps=" \
         libicu-dev \
         libmcrypt-dev \
         libxml2-dev \
+        libmemcached-dev \
+    " \
+    extraPkgs=" \
         git \
         nodejs \
         npm \
-    " \
-    && apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
+    "\
+    && apt-get update
+    && apt-get install -y $buildDeps --no-install-recommends \
+    && apt-get install -y $extraPkgs --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/* \
     && { yes 'no' | pecl install mongo; } \
     && { yes '' | pecl install apcu-beta; } \
+    && { yes '' | pecl install memcache-beta; } \
+    && { yes '/usr' | pecl install memcached; } \
     && pecl install xdebug \
     && docker-php-ext-install intl zip pdo_mysql mcrypt soap \
-    && docker-php-ext-enable mongo apcu opcache \
+    && docker-php-ext-enable mongo apcu opcache memcache \
     && echo 'date.timezone="UTC"' > /usr/local/etc/php/conf.d/date-timezone.ini \
     && npm install -g less

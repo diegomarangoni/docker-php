@@ -48,9 +48,23 @@ If you think something is missing on this image please open a PR in the reposito
 - opcache
 - mcrypt
 - soap
-- xdebug*
+- xdebug`*`
+- memcache
+- memcached`*`
 
-\* installed but not enabled
+`*` installed but not enabled by default, if you want to enable, create a entrypoint with:
+
+```
+#!/bin/bash
+
+# install latest version of composer
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# enable custom extensions
+docker-php-ext-enable xdebug memcached
+
+exec $@
+```
 
 ### PHP extra settings
 
