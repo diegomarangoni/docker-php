@@ -15,7 +15,7 @@ RUN buildDeps=" \
         nodejs \
         npm \
     "\
-    && apt-get update
+    && apt-get update \
     && apt-get install -y $buildDeps --no-install-recommends \
     && apt-get install -y $extraPkgs --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
