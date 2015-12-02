@@ -9,6 +9,8 @@ RUN buildDeps=" \
         libmcrypt-dev \
         libxml2-dev \
         libmemcached-dev \
+        libjpeg-dev \
+        libpng12-dev \
     " \
     extraPkgs=" \
         git \
@@ -24,7 +26,7 @@ RUN buildDeps=" \
     && { yes '' | pecl install memcache-beta; } \
     && { yes '/usr' | pecl install memcached; } \
     && pecl install xdebug \
-    && docker-php-ext-install intl zip pdo_mysql mcrypt soap \
+    && docker-php-ext-install intl zip pdo_mysql mcrypt soap gd \
     && docker-php-ext-enable mongo apcu opcache memcache \
     && echo 'date.timezone="UTC"' > /usr/local/etc/php/conf.d/date-timezone.ini \
     && npm install -g less
