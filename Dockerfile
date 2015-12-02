@@ -20,7 +20,7 @@ RUN buildDeps=" \
     && apt-get install -y $extraPkgs --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && { yes 'no' | pecl install mongo; } \
-    && { yes '' | pecl install apcu-beta; } \
+    && { yes '' | pecl install apcu; } \
     && { yes '' | pecl install memcache-beta; } \
     && { yes '/usr' | pecl install memcached; } \
     && pecl install xdebug \
