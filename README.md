@@ -51,6 +51,7 @@ If you think something is missing on this image please open a PR in the reposito
 - xdebug`*`
 - memcache
 - memcached`*`
+- gd
 
 `*` installed but not enabled by default, if you want to enable, create a entrypoint with:
 
