@@ -1,7 +1,7 @@
 # Supported tags and respective `Dockerfile` links
 
--   [`latest`, `cli` (*latest/Dockerfile*)](https://github.com/diegomarangoni/docker-php/blob/master/Dockerfile)
--   [`fpm` (*fpm/Dockerfile*)](https://github.com/diegomarangoni/docker-php/blob/fpm/Dockerfile)
+-   [`5.6`, `latest`, `cli` (*latest/Dockerfile*)](https://github.com/diegomarangoni/docker-php/blob/master/Dockerfile)
+-   [`5.6-fpm`, `fpm` (*fpm/Dockerfile*)](https://github.com/diegomarangoni/docker-php/blob/fpm/Dockerfile)
 
 Based on official `php` docker image with additional stuff
 
@@ -50,7 +50,6 @@ If you think something is missing on this image please open a PR in the reposito
 - soap
 - xdebug`*`
 - memcache
-- memcached`*`
 - gd
 - mbstring
 
@@ -63,7 +62,7 @@ If you think something is missing on this image please open a PR in the reposito
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # enable custom extensions
-docker-php-ext-enable xdebug memcached
+docker-php-ext-enable xdebug
 
 exec $@
 ```
@@ -74,6 +73,7 @@ exec $@
 
 ### Extra packages
 
+- composer
 - nodejs
 - npm
 
