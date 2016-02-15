@@ -24,7 +24,6 @@ RUN buildDeps=" \
     && { yes 'no' | pecl install mongo; } \
     && { yes '' | pecl install apcu; } \
     && { yes '' | pecl install memcache-beta; } \
-    && { yes '/usr' | pecl install memcached; } \
     && pecl install xdebug \
     && docker-php-ext-install intl zip pdo_mysql mcrypt soap gd mbstring \
     && docker-php-ext-enable mongo apcu opcache memcache \
