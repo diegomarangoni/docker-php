@@ -2,6 +2,11 @@ FROM php:5.6
 
 MAINTAINER "Diego Marangoni" <https://github.com/diegomarangoni>
 
+ENV APCU_VERSION 4.0.10
+ENV MEMCACHE_VERSION 3.0.8
+ENV MONGO_VERSION 1.6.12
+ENV XDEBUG_VERSION 2.3.3
+
 RUN buildDeps=" \
         libssl-dev \
         zlib1g-dev \
@@ -21,10 +26,10 @@ RUN buildDeps=" \
     && apt-get install -y $buildDeps --no-install-recommends \
     && apt-get install -y $extraPkgs --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
-    && { yes 'no' | pecl install mongo; } \
-    && { yes '' | pecl install apcu; } \
-    && { yes '' | pecl install memcache-beta; } \
-    && pecl install xdebug \
+    && { yes 'no' | pecl install mongo-$MONGO_VERSION; } \
+    && { yes '' | pecl install apcu-$APCU_VERSION; } \
+    && { yes '' | pecl install memcache-$MEMCACHE_VERSION; } \
+    && pecl install xdebug-$XDEBUG_VERSION \
     && docker-php-ext-install intl zip pdo_mysql mcrypt soap gd mbstring \
     && docker-php-ext-enable mongo apcu opcache memcache \
     && echo 'date.timezone="UTC"' > /usr/local/etc/php/conf.d/date-timezone.ini \
