@@ -1,6 +1,6 @@
 # Supported tags and respective `Dockerfile` links
 
--   [`5.6`, `latest`, `cli` (*latest/Dockerfile*)](https://github.com/diegomarangoni/docker-php/blob/master/Dockerfile)
+-   [`5.6-cli`, `cli`, `5.6`, `latest`, (*latest/Dockerfile*)](https://github.com/diegomarangoni/docker-php/blob/master/Dockerfile)
 -   [`5.6-fpm`, `fpm` (*fpm/Dockerfile*)](https://github.com/diegomarangoni/docker-php/blob/fpm/Dockerfile)
 
 Based on official `php` docker image with additional stuff
