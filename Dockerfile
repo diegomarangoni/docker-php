@@ -22,9 +22,9 @@ RUN buildDeps=" \
         nodejs \
         npm \
     "\
+    && set -x \
     && apt-get update \
-    && apt-get install -y $buildDeps --no-install-recommends \
-    && apt-get install -y $extraPkgs --no-install-recommends \
+    && apt-get install -y $buildDeps $extraPkgs --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && { yes 'no' | pecl install mongo-$MONGO_VERSION; } \
     && { yes '' | pecl install apcu-$APCU_VERSION; } \
